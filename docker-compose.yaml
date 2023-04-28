@@ -36,9 +36,12 @@ services:
     volumes:
       - ./volumes/nginx/certbot/www/:/var/www/certbot/:rw # Map host volume to certbot create cert folder, which then mapped from host to nginx
       - ./volumes/nginx/certbot/conf/:/etc/letsencrypt/:rw # Map certificates created folder by certbot to host folder
-    command: certonly --webroot --webroot-path /var/www/certbot/ --email thinhlh0812@gmail.com -d thinhlh.com -d www.thinhlh.com -n --agree-tos
+    command: certonly --webroot --webroot-path /var/www/certbot/ --email $EMAIL -d $DOMAIN -n --agree-tos
     depends_on:
       - nginx
+    environment:
+      - DOMAIN
+      - EMAIL
 networks:
   web_server_net:
     driver: bridge

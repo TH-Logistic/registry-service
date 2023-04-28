@@ -1,5 +1,5 @@
-DOMAIN=registry.thinhlh.com
-EMAIL=thinhlh0812@gmail.com
+export DOMAIN=registry.thinhlh.com
+export EMAIL=thinhlh0812@gmail.com
 
 cd ~
 git clone https://github.com/TH-Logistic/registry-service
